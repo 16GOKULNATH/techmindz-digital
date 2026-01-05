@@ -302,7 +302,14 @@ input:focus,textarea:focus{
 }
 
 @media(max-width:480px){
-  .nav ul{display:none;}
+  .nav ul{
+  display:none;
+}
+
+.nav-links.show{
+  display:flex !important;
+}
+
   .banner{height:220px;}
   .page{padding:18px;}
 }
@@ -604,4 +611,615 @@ body.dark h1{
   background:linear-gradient(45deg,#38BDF8,#3B82F6);
   -webkit-background-clip:text;
   color:transparent;
+}
+.menu-btn{
+  display:none;
+  font-size:28px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  color:var(--text);
+}
+
+/* Desktop */
+.nav-links{
+  display:flex;
+  gap:24px;
+  list-style:none;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:70px;
+    right:-100%;
+    width:70%;
+    height:100vh;
+
+    background:#020617;
+    padding-top:40px;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+    transition:.35s ease;
+    z-index:9999;
+  }
+
+  .nav-links.show{
+    right:0;
+  }
+
+  .nav-links a{
+    color:white;
+    font-size:18px;
+    padding:10px 20px;
+  }
+}
+/* Make slider title text white */
+.home-slider .overlay h1{
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  color:#ffffff !important;
+}
+.home-slider .overlay p{
+  background:none !important;
+  -webkit-background-clip:initial !important;
+  color:#ffffff !important;
+}
+/* ---------------- MOBILE SIZE TWEAKS ---------------- */
+@media(max-width:768px){
+
+  /* smaller hamburger icon */
+  .menu-btn{
+    font-size:20px;
+    padding:4px 8px;
+  }
+
+  /* smaller dark mode button */
+  .dark-btn{
+    font-size:14px;
+    padding:6px 10px;
+    border-radius:30px;
+  }
+
+  /* reduce navbar height spacing */
+  .nav{
+    padding:10px 14px;
+  }
+}
+/* MOBILE NAV BUTTON CLEAN STYLE */
+@media(max-width:768px){
+
+  .menu-btn,
+  .dark-btn{
+    background:none !important;
+    box-shadow:none !important;
+    border:none !important;
+  }
+}
+@media(max-width:768px){
+
+  /* align buttons together to the right */
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  /* logo smaller on mobile */
+  .logo{
+    font-size:18px;
+    line-height:1.1;
+  }
+
+  /* medium size icons */
+  .menu-btn{
+    font-size:18px;
+    padding:4px 6px;
+    margin-right:6px;
+  }
+
+  .dark-btn{
+    font-size:16px;
+    padding:4px 6px;
+  }
+}
+@media(max-width:768px){
+  .menu-btn,
+  .dark-btn{
+    order:2;
+  }
+
+  .logo{
+    order:1;
+  }
+}
+/* ---------- DESKTOP NAVBAR PROFESSIONAL LAYOUT ---------- */
+@media(min-width:769px){
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  /* group menu + theme button */
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:26px;
+    align-items:center;
+    list-style:none;
+  }
+
+  .dark-btn{
+    padding:8px 10px;
+    font-size:16px;
+  }
+}
+/* desktop professional navbar layout */
+@media(min-width:769px){
+  .nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+
+  .nav-right{
+    display:flex;
+    align-items:center;
+    gap:18px;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:26px;
+    list-style:none;
+    align-items:center;
+  }
+
+  .menu-btn{
+    display:none;
+  }
+}
+/* group hamburger + theme button on right */
+.right-controls{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+/* desktop */
+@media(min-width:769px){
+
+  .menu-btn{
+    display:none;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:26px;
+    list-style:none;
+  }
+}
+/* mobile menu */
+@media(max-width:768px){
+
+  .nav-links{
+    position:fixed;
+    top:70px;
+    right:-100%;
+    width:70%;
+    height:100vh;
+    background:#020617;
+    display:flex;
+    flex-direction:column;
+    padding-top:30px;
+    gap:18px;
+    z-index:9999;
+    transition:.4s ease;
+  }
+
+  .nav-links.show{
+    right:0;
+  }
+
+  .nav-links a{
+    color:white;
+    font-size:18px;
+  }
+}
+/* PERFECT CENTER LOADER ON MOBILE */
+@media(max-width:768px){
+  .loader{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    width:100vw;
+    text-align:center;
+
+    /* avoid scroll push issues */
+    margin:0;
+    padding:0;
+  }
+
+  .loader h1{
+    font-size:20px;   /* slightly smaller on mobile */
+    line-height:1.3;
+  }
+}
+/* right aligned button group */
+.right-controls{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* DESKTOP layout */
+@media(min-width:769px){
+  .menu-btn{
+    display:none;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    align-items:center;
+  }
+}
+/* MOBILE NAVIGATION */
+@media(max-width:768px){
+
+  .menu-btn{
+    font-size:22px;
+    background:none;
+    border:none;
+  }
+
+  .dark-btn{
+    font-size:18px;
+    background:none;
+    border:none;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:70px;
+    right:-100%;
+    width:75%;
+    height:100vh;
+
+    background:#020617;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    padding-top:30px;
+
+    transition:.4s ease;
+    z-index:9999;
+  }
+
+  .nav-links.show{
+    right:0;
+  }
+
+  .nav-links a{
+    color:white;
+    font-size:18px;
+  }
+}
+/* DESKTOP NAV LAYOUT */
+@media(min-width:769px){
+
+  .nav{
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+
+  /* logo stays left */
+  .logo{
+    margin-right:auto;
+  }
+
+  /* links in center */
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0 auto;              /* centers them */
+  }
+
+  /* right section items */
+  .right-controls{
+    margin-left:auto;           /* pushes to far right */
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+
+  .menu-btn{
+    display:none;               /* hidden on desktop */
+  }
+}
+/* SHIFT NAVBAR CONTENT TO RIGHT ON DESKTOP */
+@media (min-width: 769px){
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end; /* push everything to right */
+    gap:25px;
+    padding-right:40px;       /* adjust right margin */
+  }
+
+  /* logo smaller and closer */
+  .logo{
+    margin-right:10px;
+    font-size:22px;
+  }
+
+  .nav-links{
+    display:flex;
+    gap:22px;
+    list-style:none;
+  }
+
+  .right-controls{
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+
+  /* reduce theme button spacing */
+  .dark-btn{
+    margin-left:5px;
+  }
+}
+@media (min-width:769px){
+
+  /* kill any auto spacing pushing theme button away */
+  .nav-links{
+    margin-right:0 !important;
+  }
+
+  .right-controls{
+    margin-left:0 !important;
+  }
+}
+@media (min-width:769px){
+
+  /* SMALL gap between contact and theme button */
+  .dark-btn{
+    margin-left:6px !important;
+  }
+}
+@media (min-width:769px){
+  .nav{
+    justify-content:flex-end !important;
+  }
+}
+@media (min-width:769px){
+  .nav-links li{
+    padding-right:0 !important;
+    margin-right:0 !important;
+  }
+}
+/* ---------- MOBILE NAVBAR MENU FIX ---------- */
+@media(max-width:768px){
+
+  .nav-links{
+    position:fixed;
+    top:70px;
+    right:-100%;            /* hidden initially */
+    width:75%;
+    height:100vh;
+    background:#020617;
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+    padding:20px;
+
+    transition:.35s ease;
+
+    /* THIS WAS THE MAIN PROBLEM */
+    z-index:99999;          /* Forces menu above slider */
+  }
+
+  /* when hamburger clicked */
+  .nav-links.show{
+    right:0;                /* slide in */
+  }
+
+  /* clickable links style */
+  .nav-links a{
+    color:white;
+    font-size:18px;
+  }
+
+  /* show hamburger in mobile */
+  .menu-btn{
+    display:block;
+    font-size:22px;
+    background:none;
+    border:none;
+  }
+}
+/* --- MOBILE: MOVE HAMBURGER + THEME BUTTON TO RIGHT --- */
+@media(max-width:768px){
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  /* logo stays left */
+  .logo{
+    order:1;
+  }
+
+  /* right side buttons group */
+  .right-controls{
+    order:2;
+    margin-left:auto;
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+
+  /* nav-links panel comes last */
+  .nav-links{
+    order:3;
+  }
+}
+/* RIGHT SIDE BUTTON GROUP */
+.right-controls{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+/* MOBILE FIXES */
+@media(max-width:768px){
+
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+
+  .logo{
+    order:1;
+  }
+
+  .right-controls{
+    order:2;
+    margin-left:auto;
+  }
+
+  .nav-links{
+    position:fixed;
+    top:70px;
+    right:-100%;
+    width:70%;
+    height:100vh;
+    background:#020617;
+    display:flex;
+    flex-direction:column;
+    padding-top:40px;
+    gap:18px;
+    transition:.3s;
+  }
+
+  .nav-links.show{
+    right:0;
+  }
+
+  .nav-links a{
+    color:white;
+    font-size:18px;
+  }
+}
+/* ----------------- BEAUTIFUL MOBILE MENU STYLE ----------------- */
+@media(max-width:768px){
+
+  /* menu background */
+  .nav-links{
+    background: linear-gradient(135deg, #0F172A, #1F3A8A);
+    border-left: 3px solid #38BDF8;
+    box-shadow: -5px 0 25px rgba(0,0,0,.4);
+  }
+
+  /* each item spacing */
+  .nav-links li{
+    width: 100%;
+    padding: 10px 18px;
+  }
+
+  /* text style */
+  .nav-links a{
+    color:#FFFFFF !important;
+    font-weight:700;
+    letter-spacing:.3px;
+  }
+
+  /* divider line */
+  .nav-links li:not(:last-child){
+    border-bottom:1px solid rgba(255,255,255,0.15);
+  }
+
+  /* hover effect */
+  .nav-links a:hover{
+    color:#38BDF8;
+    transform:translateX(6px);
+    transition:.25s;
+  }
+}
+
+/* --------- REDUCE MOBILE MENU PANEL WIDTH & STYLE --------- */
+@media(max-width:768px){
+
+  .nav-links{
+    width: 60%;                 /* reduced menu width */
+    max-width: 270px;           /* prevents very wide phones */
+    border-radius: 0 18px 18px 0; /* rounded edge on right */
+  }
+}
+@media(max-width:768px){
+  .nav-links{
+    right: -5px;
+  }
+}
+/* -------- LIGHT THEME MOBILE MENU -------- */
+@media(max-width:768px){
+
+  .nav-links{
+    background: linear-gradient(135deg, #FFFFFF, #F3F6FF);
+    border-left: 3px solid #2563EB;
+    box-shadow: -6px 0 25px rgba(0,0,0,.25);
+  }
+
+  .nav-links li{
+    padding: 10px 18px;
+  }
+
+  /* menu text color */
+  .nav-links a{
+    color:#0F172A !important;     /* dark blue text */
+    font-weight:700;
+  }
+
+  /* separators */
+  .nav-links li:not(:last-child){
+    border-bottom:1px solid rgba(15,23,42,.12);
+  }
+
+  /* hover effect */
+  .nav-links a:hover{
+    color:#2563EB;                 /* primary blue */
+    transform:translateX(6px);
+    transition:.25s;
+  }
+}
+
+.nav-links{
+  backdrop-filter: blur(8px);
 }

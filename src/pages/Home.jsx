@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
-
 export default function Home() {
-
   // ---- SLIDER DATA ----
   const slides = [
     {
@@ -43,7 +41,7 @@ export default function Home() {
     }, 3500);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div>
@@ -58,8 +56,16 @@ export default function Home() {
             style={{ backgroundImage: `url(${slide.image})` }}
           >
             <div className="overlay">
-              <h1>{slide.title}</h1>
-              <p>{slide.text}</p>
+
+              {/* ⭐⭐ HIGHLIGHTED TEXT ⭐⭐ */}
+              <h1 className={i === index ? "highlight-title" : ""}>
+                {slide.title}
+              </h1>
+
+              <p className={i === index ? "highlight-text" : ""}>
+                {slide.text}
+              </p>
+
             </div>
           </div>
         ))}
@@ -77,9 +83,8 @@ export default function Home() {
         </p>
 
         <Link to="/contact">
-  <button>Contact Now</button>
-</Link>
-
+          <button>Contact Now</button>
+        </Link>
 
         <h1>What We Do</h1>
 

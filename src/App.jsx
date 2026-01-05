@@ -9,18 +9,16 @@ import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import Admin from "./pages/Admin";
 
-
 function App() {
 
   const [loading, setLoading] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  // ❗ ALWAYS call hooks at top level (not inside if)
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500); // 2.5 sec
+    const timer = setTimeout(() => setLoading(false), 2500);
     return () => clearTimeout(timer);
   }, []);
 
-  // show loader first
   if (loading) {
     return (
       <div className="loader">
@@ -29,49 +27,63 @@ function App() {
     );
   }
 
-  // after loading → show app
   return (
     <Router>
 
       <nav className="nav">
+
+        {/* LEFT — LOGO */}
         <div className="logo">Techmindz Digital Consulting</div>
 
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/services">Services</Link></li>
-          <li><Link to="/training">Training</Link></li>
-          <li><Link to="/careers">Careers</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
+        {/* CENTER — NAV LINKS */}
+        <ul className={`nav-links ${menuOpen ? "show" : ""}`}>
+          <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
+          <li><Link to="/about" onClick={() => setMenuOpen(false)}>About</Link></li>
+          <li><Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link></li>
+          <li><Link to="/training" onClick={() => setMenuOpen(false)}>Training</Link></li>
+          <li><Link to="/careers" onClick={() => setMenuOpen(false)}>Careers</Link></li>
+          <li><Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link></li>
         </ul>
-        <button
-  className="dark-btn"
-  onClick={() => document.body.classList.toggle("dark")}
->
-  🌙
-</button>
 
+        {/* RIGHT — THEME + HAMBURGER */}
+        <div className="right-controls">
+
+          {/* THEME BUTTON */}
+          <button
+            className="dark-btn"
+            onClick={() => document.body.classList.toggle("dark")}
+          >
+            🌙
+          </button>
+
+          {/* HAMBURGER BUTTON */}
+          <button
+            className="menu-btn"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            ☰
+          </button>
+
+        </div>
 
       </nav>
 
-     <Routes>
-  <Route path="/" element={<Home/>}/>
-  <Route path="/about" element={<About/>}/>
-  <Route path="/services" element={<Services/>}/>
-  <Route path="/training" element={<Training/>}/>
-  <Route path="/careers" element={<Careers/>}/>
-  <Route path="/contact" element={<Contact/>}/>
-
-  {/* ⭐ NEW ADMIN ROUTE */}
-  <Route path="/admin" element={<Admin/>}/>
-</Routes>
-
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/services" element={<Services/>}/>
+        <Route path="/training" element={<Training/>}/>
+        <Route path="/careers" element={<Careers/>}/>
+        <Route path="/contact" element={<Contact/>}/>
+        <Route path="/admin" element={<Admin/>}/>
+      </Routes>
 
       {/* WhatsApp */}
       <a
         href="https://wa.me/917845049711"
         className="whatsapp"
         target="_blank"
+        rel="noreferrer"
       >
         WhatsApp
       </a>
@@ -81,6 +93,7 @@ function App() {
         href="https://www.instagram.com/techmindzindia?igsh=MTZwM3N5ajltZ2I0dg=="
         className="instagram"
         target="_blank"
+        rel="noreferrer"
       >
         📸
       </a>
